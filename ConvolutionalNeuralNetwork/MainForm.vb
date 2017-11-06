@@ -20,7 +20,13 @@
     End Sub
 
     Private Sub ButtonSetting_Click(sender As Object, e As EventArgs) Handles ButtonSetting.Click
-
+        Dim settingFrm As New SettingForm
+        With settingFrm
+            .FormBorderStyle = FormBorderStyle.FixedDialog
+            .MinimizeBox = False
+            .MaximizeBox = False
+            .ShowDialog(Me)
+        End With
     End Sub
 
     Private Sub MenuFileRead_Click(sender As Object, e As EventArgs) Handles MenuFileRead.Click
