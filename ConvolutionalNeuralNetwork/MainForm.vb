@@ -31,7 +31,14 @@ Public Class MainForm
     Private Sub ButtonStart_Click(sender As Object, e As EventArgs) _
     Handles ButtonStart.Click
         timeCount = 0
+        ' 一時的なテストデータ
+        Dim err() As Double = New Double() {2.141592, 2.385263, 1.862467, 1.851734, 1.325368, 1.244763, 1.553461, 0.869214, 0.913814}
         Timer.Start()
+
+        Dim lineChart As New DrawChart(ChartLine, err)
+        lineChart.DrawLineChart()
+
+        Timer.Stop()
     End Sub
 
     ' *************************************************************************
@@ -56,6 +63,7 @@ Public Class MainForm
         Dim read As New ReadData(OpenFileDialog1)
         If read.GetData(data, teacher) Then
             ButtonStart.Enabled = True
+            ActiveControl = ButtonStart
         End If
     End Sub
 
