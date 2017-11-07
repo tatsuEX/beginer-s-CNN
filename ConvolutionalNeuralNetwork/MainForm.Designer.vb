@@ -23,9 +23,9 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ファイルFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuFileRead = New System.Windows.Forms.ToolStripMenuItem()
@@ -35,7 +35,7 @@ Partial Class MainForm
         Me.ChartLine = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.StatusLabelElapsed = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip.SuspendLayout()
         CType(Me.ChartLine, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,16 +93,16 @@ Partial Class MainForm
         '
         'ChartLine
         '
-        ChartArea8.Name = "ChartArea1"
-        Me.ChartLine.ChartAreas.Add(ChartArea8)
-        Legend8.Name = "Legend1"
-        Me.ChartLine.Legends.Add(Legend8)
+        ChartArea1.Name = "ChartArea1"
+        Me.ChartLine.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.ChartLine.Legends.Add(Legend1)
         Me.ChartLine.Location = New System.Drawing.Point(16, 80)
         Me.ChartLine.Name = "ChartLine"
-        Series8.ChartArea = "ChartArea1"
-        Series8.Legend = "Legend1"
-        Series8.Name = "Series1"
-        Me.ChartLine.Series.Add(Series8)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.ChartLine.Series.Add(Series1)
         Me.ChartLine.Size = New System.Drawing.Size(752, 376)
         Me.ChartLine.TabIndex = 3
         Me.ChartLine.Text = "Chart1"
@@ -123,9 +123,9 @@ Partial Class MainForm
         Me.StatusLabelElapsed.Size = New System.Drawing.Size(152, 20)
         Me.StatusLabelElapsed.Text = "ToolStripStatusLabel1"
         '
-        'OpenFileDialog
+        'OpenFileDialog1
         '
-        Me.OpenFileDialog.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'Timer
         '
@@ -163,6 +163,6 @@ Partial Class MainForm
     Friend WithEvents ChartLine As DataVisualization.Charting.Chart
     Friend WithEvents StatusStrip As StatusStrip
     Friend WithEvents StatusLabelElapsed As ToolStripStatusLabel
-    Friend WithEvents OpenFileDialog As OpenFileDialog
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Timer As Timer
 End Class

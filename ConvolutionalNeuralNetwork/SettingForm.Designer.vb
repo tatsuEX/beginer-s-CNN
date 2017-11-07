@@ -23,16 +23,16 @@ Partial Class SettingForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextSeed = New System.Windows.Forms.TextBox()
-        Me.TextErrorLimit = New System.Windows.Forms.TextBox()
-        Me.TextHiddenNum = New System.Windows.Forms.TextBox()
-        Me.TextAlpha = New System.Windows.Forms.TextBox()
         Me.TextMaxCalculation = New System.Windows.Forms.TextBox()
+        Me.TextAlpha = New System.Windows.Forms.TextBox()
+        Me.TextHiddenNum = New System.Windows.Forms.TextBox()
+        Me.TextErrorLimit = New System.Windows.Forms.TextBox()
+        Me.TextSeed = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.ButtonConfirm = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.GroupBox.SuspendLayout()
@@ -57,41 +57,45 @@ Partial Class SettingForm
         Me.GroupBox.TabStop = False
         Me.GroupBox.Text = "設定"
         '
-        'Label1
+        'TextMaxCalculation
         '
-        Me.Label1.Location = New System.Drawing.Point(16, 32)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(128, 23)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "乱数シード"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TextMaxCalculation.Location = New System.Drawing.Point(168, 224)
+        Me.TextMaxCalculation.Name = "TextMaxCalculation"
+        Me.TextMaxCalculation.Size = New System.Drawing.Size(100, 22)
+        Me.TextMaxCalculation.TabIndex = 9
+        Me.TextMaxCalculation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label2
+        'TextAlpha
         '
-        Me.Label2.Location = New System.Drawing.Point(16, 80)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(128, 23)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "誤差上限"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TextAlpha.Location = New System.Drawing.Point(168, 176)
+        Me.TextAlpha.Name = "TextAlpha"
+        Me.TextAlpha.Size = New System.Drawing.Size(100, 22)
+        Me.TextAlpha.TabIndex = 8
+        Me.TextAlpha.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label3
+        'TextHiddenNum
         '
-        Me.Label3.Location = New System.Drawing.Point(16, 128)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(128, 23)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "中間層のニューロン"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TextHiddenNum.Location = New System.Drawing.Point(168, 128)
+        Me.TextHiddenNum.Name = "TextHiddenNum"
+        Me.TextHiddenNum.Size = New System.Drawing.Size(100, 22)
+        Me.TextHiddenNum.TabIndex = 7
+        Me.TextHiddenNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label4
+        'TextErrorLimit
         '
-        Me.Label4.Location = New System.Drawing.Point(16, 176)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(128, 23)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "学習係数"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TextErrorLimit.Location = New System.Drawing.Point(168, 80)
+        Me.TextErrorLimit.Name = "TextErrorLimit"
+        Me.TextErrorLimit.Size = New System.Drawing.Size(100, 22)
+        Me.TextErrorLimit.TabIndex = 6
+        Me.TextErrorLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextSeed
+        '
+        Me.TextSeed.Location = New System.Drawing.Point(168, 32)
+        Me.TextSeed.Name = "TextSeed"
+        Me.TextSeed.Size = New System.Drawing.Size(100, 22)
+        Me.TextSeed.TabIndex = 5
+        Me.TextSeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label5
         '
@@ -102,45 +106,41 @@ Partial Class SettingForm
         Me.Label5.Text = "最大計算回数"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TextSeed
+        'Label4
         '
-        Me.TextSeed.Location = New System.Drawing.Point(168, 32)
-        Me.TextSeed.Name = "TextSeed"
-        Me.TextSeed.Size = New System.Drawing.Size(100, 22)
-        Me.TextSeed.TabIndex = 5
-        Me.TextSeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label4.Location = New System.Drawing.Point(16, 176)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(128, 23)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "学習係数"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TextErrorLimit
+        'Label3
         '
-        Me.TextErrorLimit.Location = New System.Drawing.Point(168, 80)
-        Me.TextErrorLimit.Name = "TextErrorLimit"
-        Me.TextErrorLimit.Size = New System.Drawing.Size(100, 22)
-        Me.TextErrorLimit.TabIndex = 6
-        Me.TextErrorLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label3.Location = New System.Drawing.Point(16, 128)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(128, 23)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "中間層のニューロン"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TextHiddenNum
+        'Label2
         '
-        Me.TextHiddenNum.Location = New System.Drawing.Point(168, 128)
-        Me.TextHiddenNum.Name = "TextHiddenNum"
-        Me.TextHiddenNum.Size = New System.Drawing.Size(100, 22)
-        Me.TextHiddenNum.TabIndex = 7
-        Me.TextHiddenNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label2.Location = New System.Drawing.Point(16, 80)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(128, 23)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "誤差上限"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TextAlpha
+        'Label1
         '
-        Me.TextAlpha.Location = New System.Drawing.Point(168, 176)
-        Me.TextAlpha.Name = "TextAlpha"
-        Me.TextAlpha.Size = New System.Drawing.Size(100, 22)
-        Me.TextAlpha.TabIndex = 8
-        Me.TextAlpha.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextMaxCalculation
-        '
-        Me.TextMaxCalculation.Location = New System.Drawing.Point(168, 224)
-        Me.TextMaxCalculation.Name = "TextMaxCalculation"
-        Me.TextMaxCalculation.Size = New System.Drawing.Size(100, 22)
-        Me.TextMaxCalculation.TabIndex = 9
-        Me.TextMaxCalculation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label1.Location = New System.Drawing.Point(16, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(128, 23)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "乱数シード"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'ButtonConfirm
         '

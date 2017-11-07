@@ -3,6 +3,8 @@
 ' *****************************************************************************
 Public Class MainForm
     Private timeCount As Integer
+    Private data(,,) As Double
+    Private teacher() As Double
 
     ' *************************************************************************
     Private Sub MainForm_Load(sender As Object, e As EventArgs) _
@@ -10,6 +12,7 @@ Public Class MainForm
         StatusLabelElapsed.Text =
             String.Format("{0, 8}  {1, 2:00} : {2, 2:00}", "Elapsed",
                           0, 0)
+        ButtonStart.Enabled = False
     End Sub
 
     ' *************************************************************************
@@ -50,7 +53,10 @@ Public Class MainForm
     ' 「ファイル読み込み」
     Private Sub MenuFileRead_Click(sender As Object, e As EventArgs) _
     Handles MenuFileRead.Click
-
+        Dim read As New ReadData(OpenFileDialog1)
+        If read.GetData(data, teacher) Then
+            ButtonStart.Enabled = True
+        End If
     End Sub
 
     ' *************************************************************************
