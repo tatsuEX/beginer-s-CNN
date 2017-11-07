@@ -37,6 +37,7 @@ Partial Class MainForm
         Me.StatusLabelElapsed = New System.Windows.Forms.ToolStripStatusLabel()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
+        Me.MenuToClipboard = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         CType(Me.ChartLine, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip.SuspendLayout()
@@ -54,7 +55,7 @@ Partial Class MainForm
         '
         'ファイルFToolStripMenuItem
         '
-        Me.ファイルFToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuFileRead, Me.MenuQuit})
+        Me.ファイルFToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuFileRead, Me.MenuToClipboard, Me.MenuQuit})
         Me.ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem"
         Me.ファイルFToolStripMenuItem.Size = New System.Drawing.Size(80, 24)
         Me.ファイルFToolStripMenuItem.Text = "ファイル(&F)"
@@ -131,6 +132,12 @@ Partial Class MainForm
         '
         Me.Timer.Interval = 1000
         '
+        'MenuToClipboard
+        '
+        Me.MenuToClipboard.Name = "MenuToClipboard"
+        Me.MenuToClipboard.Size = New System.Drawing.Size(226, 26)
+        Me.MenuToClipboard.Text = "ｸﾘｯﾌﾟﾎﾞｰﾄﾞ転送(&C)"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
@@ -165,4 +172,5 @@ Partial Class MainForm
     Friend WithEvents StatusLabelElapsed As ToolStripStatusLabel
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Timer As Timer
+    Friend WithEvents MenuToClipboard As ToolStripMenuItem
 End Class

@@ -12,7 +12,7 @@ Public Class MainForm
         StatusLabelElapsed.Text =
             String.Format("{0, 8}  {1, 2:00} : {2, 2:00}", "Elapsed",
                           0, 0)
-        ButtonStart.Enabled = False
+        ChangeEnabled(False, False)
     End Sub
 
     ' *************************************************************************
@@ -23,6 +23,15 @@ Public Class MainForm
             String.Format("{0, 8}  {1, 2:00} : {2, 2:00}", "Elapsed",
                           timeCount \ 60, timeCount Mod 60)
         timeCount += 1
+    End Sub
+
+    ' *************************************************************************
+    ' コントロールの Enabled 変更
+    ' btnEnabled  : 開始ボタン
+    ' menuEnabled : CNN 学習後有効になるメニュー項目
+    Private Sub ChangeEnabled(btnEnabled As Boolean, menuEnabled As Boolean)
+        ButtonStart.Enabled = btnEnabled
+        MenuToClipboard.Enabled = menuEnabled
     End Sub
 
 #Region "Button"
@@ -38,6 +47,7 @@ Public Class MainForm
         Dim lineChart As New DrawChart(ChartLine, err)
         lineChart.DrawLineChart()
 
+        ChangeEnabled(False, True)
         Timer.Stop()
     End Sub
 
@@ -62,9 +72,16 @@ Public Class MainForm
     Handles MenuFileRead.Click
         Dim read As New ReadData(OpenFileDialog1)
         If read.GetData(data, teacher) Then
-            ButtonStart.Enabled = True
+            ChangeEnabled(True, False)
             ActiveControl = ButtonStart
         End If
+    End Sub
+
+    ' *************************************************************************
+    ' 「ｸﾘｯﾌﾟﾎﾞｰﾄﾞ転送」
+    Private Sub MenuToClipboard_Click(sender As Object, e As EventArgs) _
+    Handles MenuToClipboard.Click
+        Utility.ToClipBoard(ChartLine)
     End Sub
 
     ' *************************************************************************
