@@ -1,7 +1,12 @@
-﻿Public Class SettingForm
+﻿' *****************************************************************************
+' 設定変更フォーム
+' *****************************************************************************
+Public Class SettingForm
     Private validMessage As String = ""
 
-    Private Sub SettingForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    ' *************************************************************************
+    Private Sub SettingForm_Load(sender As Object, e As EventArgs) _
+    Handles MyBase.Load
         TextSeed.Text = Setting.SEED.ToString()
         TextErrorLimit.Text = Setting.ERROR_LIMIT.ToString()
         TextHiddenNum.Text = Setting.HIDDEN_NO.ToString()
@@ -9,6 +14,10 @@
         TextMaxCalculation.Text = Setting.MAX_CALCULATION.ToString()
     End Sub
 
+    ' *************************************************************************
+    ' バリデーションチェック
+    ' validMessage : 数値変換に失敗した項目
+    ' Return isSuccess : True - 成功 / False - 失敗
     Private Function CheckValidation() As Boolean
         Dim isSuccess As Boolean = True
         Dim tmpi As Integer
@@ -46,7 +55,11 @@
         Return isSuccess
     End Function
 
-    Private Sub ButtonConfirm_Click(sender As Object, e As EventArgs) Handles ButtonConfirm.Click
+#Region "Button"
+    ' *************************************************************************
+    ' 「確定」
+    Private Sub ButtonConfirm_Click(sender As Object, e As EventArgs) _
+    Handles ButtonConfirm.Click
         If Not CheckValidation() Then
             MessageBox.Show(validMessage + vbCrLf +
                             "の項目は入力値が不正のため更新されませんでした。",
@@ -57,7 +70,11 @@
         Me.Close()
     End Sub
 
-    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
+    ' *************************************************************************
+    ' 「キャンセル」
+    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) _
+    Handles ButtonCancel.Click
         Me.Close()
     End Sub
+#End Region
 End Class
