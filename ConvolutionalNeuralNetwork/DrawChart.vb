@@ -23,13 +23,15 @@ Public Class DrawChart
             .Legends.Clear()
             .Series.Add(dataName)
             .Series(dataName).ChartType = SeriesChartType.Line
+            ' x軸の設定
             With .ChartAreas(0).AxisX
-                .Minimum = 1
-                .Title = "学習の繰り返し回数"
-                .MajorGrid.Enabled = False
-                .LabelStyle.Interval = 5
+                .Minimum = 1                        ' 最小値
+                .Title = "学習の繰り返し回数"       ' 軸ラベル
+                .MajorGrid.Enabled = False          ' 縦線を非表示
+                .LabelStyle.Interval = 5            ' 軸に表示する値の間隔
             End With
-            .ChartAreas(0).AxisY.Title = dataName
+            ' y軸の設定
+            .ChartAreas(0).AxisY.Title = dataName   ' 軸ラベル
             For i As Integer = 0 To vector.GetUpperBound(0)
                 .Series(dataName).Points.AddXY(i, vector(i))
             Next

@@ -34,20 +34,24 @@ Public Class ReadData
                     inputs = 0
                     rows = 0
                     cols = 0
+                    ' ファイルの終端まで繰り返し
                     While Not str.EndOfStream
+                        ' 一行読み込み
                         Dim line As String = str.ReadLine()
                         If line.Length = 0 Then
 
                         Else
+                            ' 読み込んだ行の値の数、スペースで分割
                             Dim splitLen As Integer = Split(line).Length
                             If splitLen = 1 Then
                                 inputs += 1     ' 入力数は教師データで判断
                                 firstMatrix = rows > 0 AndAlso cols > 0
                             Else
+                                ' 入力データ１つ目の時のみ行数、列数のカウント
                                 If Not firstMatrix Then
+                                    ' 教師データ１つ目と２つ目の間の行数、列数
                                     If inputs = 1 Then
                                         rows += 1
-                                    Else
                                         cols = splitLen
                                     End If
                                 End If
