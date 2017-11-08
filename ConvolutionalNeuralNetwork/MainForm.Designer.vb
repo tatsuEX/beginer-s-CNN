@@ -22,25 +22,23 @@ Partial Class MainForm
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ファイルFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuFileRead = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuToClipboard = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuQuit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ButtonStart = New System.Windows.Forms.Button()
         Me.ButtonSetting = New System.Windows.Forms.Button()
         Me.ChartLine = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.StatusLabelElapsed = New System.Windows.Forms.ToolStripStatusLabel()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.MenuToClipboard = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TextCalcCount = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.MenuStrip.SuspendLayout()
         CType(Me.ChartLine, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip
@@ -49,7 +47,7 @@ Partial Class MainForm
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ファイルFToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(782, 28)
+        Me.MenuStrip.Size = New System.Drawing.Size(882, 28)
         Me.MenuStrip.TabIndex = 0
         Me.MenuStrip.Text = "MenuStrip1"
         '
@@ -66,6 +64,12 @@ Partial Class MainForm
         Me.MenuFileRead.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
         Me.MenuFileRead.Size = New System.Drawing.Size(226, 26)
         Me.MenuFileRead.Text = "ファイル読込(&R)"
+        '
+        'MenuToClipboard
+        '
+        Me.MenuToClipboard.Name = "MenuToClipboard"
+        Me.MenuToClipboard.Size = New System.Drawing.Size(226, 26)
+        Me.MenuToClipboard.Text = "ｸﾘｯﾌﾟﾎﾞｰﾄﾞ転送(&C)"
         '
         'MenuQuit
         '
@@ -94,56 +98,61 @@ Partial Class MainForm
         '
         'ChartLine
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.ChartLine.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.ChartLine.Legends.Add(Legend1)
+        ChartArea3.Name = "ChartArea1"
+        Me.ChartLine.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.ChartLine.Legends.Add(Legend3)
         Me.ChartLine.Location = New System.Drawing.Point(16, 80)
         Me.ChartLine.Name = "ChartLine"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.ChartLine.Series.Add(Series1)
-        Me.ChartLine.Size = New System.Drawing.Size(752, 376)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.ChartLine.Series.Add(Series3)
+        Me.ChartLine.Size = New System.Drawing.Size(850, 480)
         Me.ChartLine.TabIndex = 3
         Me.ChartLine.Text = "Chart1"
-        '
-        'StatusStrip
-        '
-        Me.StatusStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatusLabelElapsed})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 528)
-        Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(782, 25)
-        Me.StatusStrip.TabIndex = 4
-        Me.StatusStrip.Text = "StatusStrip1"
-        '
-        'StatusLabelElapsed
-        '
-        Me.StatusLabelElapsed.Name = "StatusLabelElapsed"
-        Me.StatusLabelElapsed.Size = New System.Drawing.Size(152, 20)
-        Me.StatusLabelElapsed.Text = "ToolStripStatusLabel1"
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'Timer
+        'TextCalcCount
         '
-        Me.Timer.Interval = 1000
+        Me.TextCalcCount.BackColor = System.Drawing.Color.White
+        Me.TextCalcCount.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.TextCalcCount.Location = New System.Drawing.Point(728, 40)
+        Me.TextCalcCount.Name = "TextCalcCount"
+        Me.TextCalcCount.ReadOnly = True
+        Me.TextCalcCount.Size = New System.Drawing.Size(100, 27)
+        Me.TextCalcCount.TabIndex = 5
+        Me.TextCalcCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'MenuToClipboard
+        'Label1
         '
-        Me.MenuToClipboard.Name = "MenuToClipboard"
-        Me.MenuToClipboard.Size = New System.Drawing.Size(226, 26)
-        Me.MenuToClipboard.Text = "ｸﾘｯﾌﾟﾎﾞｰﾄﾞ転送(&C)"
+        Me.Label1.Location = New System.Drawing.Point(624, 40)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(88, 32)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "計算回数"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(840, 40)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(28, 32)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "回"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(782, 553)
-        Me.Controls.Add(Me.StatusStrip)
+        Me.ClientSize = New System.Drawing.Size(882, 603)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TextCalcCount)
         Me.Controls.Add(Me.ChartLine)
         Me.Controls.Add(Me.ButtonSetting)
         Me.Controls.Add(Me.ButtonStart)
@@ -154,8 +163,6 @@ Partial Class MainForm
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         CType(Me.ChartLine, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.StatusStrip.ResumeLayout(False)
-        Me.StatusStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -168,9 +175,9 @@ Partial Class MainForm
     Friend WithEvents ButtonStart As Button
     Friend WithEvents ButtonSetting As Button
     Friend WithEvents ChartLine As DataVisualization.Charting.Chart
-    Friend WithEvents StatusStrip As StatusStrip
-    Friend WithEvents StatusLabelElapsed As ToolStripStatusLabel
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents Timer As Timer
     Friend WithEvents MenuToClipboard As ToolStripMenuItem
+    Friend WithEvents TextCalcCount As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

@@ -3,26 +3,15 @@
 ' *****************************************************************************
 Public Class MainForm
     Private timeCount As Integer
-    Private data(,,) As Double
+    Private input(,,) As Double
     Private teacher() As Double
+    Private cnn As ConvolutionalNeuralNetwork
 
     ' *************************************************************************
     Private Sub MainForm_Load(sender As Object, e As EventArgs) _
     Handles MyBase.Load
-        StatusLabelElapsed.Text =
-            String.Format("{0, 8}  {1, 2:00} : {2, 2:00}", "Elapsed",
-                          0, 0)
+        TextCalcCount.Text = 0
         ChangeEnabled(False, False)
-    End Sub
-
-    ' *************************************************************************
-    ' 経過時間の表示
-    Private Sub Timer_Tick(sender As Object, e As EventArgs) _
-    Handles Timer.Tick
-        StatusLabelElapsed.Text =
-            String.Format("{0, 8}  {1, 2:00} : {2, 2:00}", "Elapsed",
-                          timeCount \ 60, timeCount Mod 60)
-        timeCount += 1
     End Sub
 
     ' *************************************************************************
@@ -40,15 +29,16 @@ Public Class MainForm
     Private Sub ButtonStart_Click(sender As Object, e As EventArgs) _
     Handles ButtonStart.Click
         timeCount = 0
-        ' 一時的なテストデータ
-        Dim err() As Double = New Double() {2.141592, 2.385263, 1.862467, 1.851734, 1.325368, 1.244763, 1.553461, 0.869214, 0.913814}
-        Timer.Start()
+        cnn = New ConvolutionalNeuralNetwork(input, teacher)
 
+        Dim err() As Double
+
+        err = cnn.DeepLearning()
+        TextCalcCount.Text = err.Length()
         Dim lineChart As New DrawChart(ChartLine, err)
         lineChart.DrawLineChart()
 
         ChangeEnabled(False, True)
-        Timer.Stop()
     End Sub
 
     ' *************************************************************************
@@ -71,8 +61,9 @@ Public Class MainForm
     Private Sub MenuFileRead_Click(sender As Object, e As EventArgs) _
     Handles MenuFileRead.Click
         Dim read As New ReadData(OpenFileDialog1)
-        If read.GetData(data, teacher) Then
+        If read.GetData(input, teacher) Then
             ChangeEnabled(True, False)
+            TextCalcCount.Text = 0
             ActiveControl = ButtonStart
         End If
     End Sub
